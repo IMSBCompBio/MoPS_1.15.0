@@ -1,0 +1,7 @@
+MoPS-package            MoPS - Model-based Periodicity Screening
+basic                   Dataset containing 10 periodic time series
+ccycle                  Dataset containing 500 time series gene
+                        expression measurements.
+fit.periodic            Fitting of periodic curves to time series data
+predictTimecourses      Prediction of periodic time courses.
+result.as.dataframe     Parameters of fitted periodic time courses.

@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Prediction of periodic time courses.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for predictTimecourses {MoPS}"><tr><td>predictTimecourses {MoPS}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>
+Prediction of periodic time courses. 
+</h2>
+
+<h3>Description</h3>
+
+<p>Function that predicts periodic time courses using parameters identified by fit.periodic(). 
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+predictTimecourses(res.fits)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>res.fits</code></td>
+<td>
+
+<p>List object returned by fit.periodic().
+</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function takes as input the result list from MoPS function fit.periodic() and creates a list of best fitting time courses.
+The input list also contains information about the screening parameters, which is used in the generation of predicted time courses.
+</p>
+
+
+<h3>Value</h3>
+
+<p>a numeric matrix containing the predicted values. 
+The number of rows equals the number of rows of the original data matrix, the number of columns equals the number of screened phases. 
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Philipp Eser, Achim Tresch
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+x = seq(0,40,by=1) # time points
+
+## create 10 periodic time series with added noise
+mat.p = matrix(rep(x,10),nrow=10,ncol=length(x),byrow=TRUE)
+y = -seq(1:10)
+mat.p = apply(mat.p,2,function(x){
+	y = sin(pi*(x/41*6)+y)+rnorm(length(x),sd=1)
+	})
+
+## add 10 non-periodic noisy time series
+mat.nonP = matrix(rep(x,10),nrow=10,ncol=length(x),byrow=TRUE)
+mat.nonP = apply(mat.nonP,2,function(x){
+	y = rnorm(length(x),sd=1)
+	})
+	
+mat = rbind(mat.p,mat.nonP)
+
+res = fit.periodic(mat,phi=seq(0,20,1),lambda=seq(1,20,1))
+time.courses = predictTimecourses(res)
+
+plot(mat[1,],type="l",main="",xlab="",ylab="")
+points(time.courses[1,],type="l",col="limegreen",lwd=2)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>MoPS</em> version 1.14.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

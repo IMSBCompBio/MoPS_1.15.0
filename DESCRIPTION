@@ -1,0 +1,14 @@
+Package: MoPS
+Type: Package
+Title: MoPS - Model-based Periodicity Screening
+Version: 1.15.0
+Date: 2021-10-11
+Author: Philipp Eser, Achim Tresch
+Maintainer: Philipp Eser <eser@genzentrum.lmu.de>
+Description: Identification and characterization of periodic
+        fluctuations in time-series data.
+Imports: Biobase
+License: GPL-3
+biocViews: GeneRegulation,Classification,TimeCourse,Regression
+NeedsCompilation: no
+

@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Parameters of fitted periodic time courses.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for result.as.dataframe {MoPS}"><tr><td>result.as.dataframe {MoPS}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>
+Parameters of fitted periodic time courses.
+</h2>
+
+<h3>Description</h3>
+
+<p>Converts the result list derived by MoPS function fit.periodic() to a data.frame. 
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+result.as.dataframe(result.list)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>result.list</code></td>
+<td>
+
+<p>List of best fitting parameters returned by fit.periodic().
+</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function takes as input the result list from MoPS function fit.periodic() and extracts the time course specific optimal parameters.
+</p>
+
+
+<h3>Value</h3>
+
+<p>data.frame containing the best fitting periodic parameters for each time series (rows):
+</p>
+<p>columns:
+ID : unique identifier
+score : log-likelihood for periodic behaviour
+phi : phase
+lambda : period length
+sigma : attenuation of the signal along the complete time series
+mean : mean 
+amplitude : amplitude
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Philipp Eser, Achim Tresch
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+y = 2*sin(seq(0,6*pi,length.out=50)+rnorm(50))
+res = fit.periodic(y)
+result.as.dataframe(res)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>MoPS</em> version 1.14.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

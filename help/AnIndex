@@ -1,0 +1,14 @@
+MoPS-package	MoPS-package
+basic	basic
+ccycle	ccycle
+createLinearTimeCourses	MoPS-internal
+decimpart	MoPS-internal
+extend	MoPS-internal
+fit.periodic	fit.periodic
+fun.lognormal	MoPS-internal
+fun.lognormal.psi	MoPS-internal
+makewave	MoPS-internal
+MoPS	MoPS-package
+pathfunction	MoPS-internal
+predictTimecourses	predictTimecourses
+result.as.dataframe	result.as.dataframe
